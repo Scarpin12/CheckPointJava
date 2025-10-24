@@ -7,6 +7,7 @@ public class FilmeResumoVo {
     private String Type;
     private String Poster;
 
+    // Getters e Setters
     public String getTitle() {
         return Title;
     }
@@ -49,12 +50,6 @@ public class FilmeResumoVo {
 
     @Override
     public String toString() {
-        return "FilmeResumoVo{" +
-                "Title='" + Title + '\'' +
-                ", Year='" + Year + '\'' +
-                ", imdbID='" + imdbID + '\'' +
-                ", Type='" + Type + '\'' +
-                ", Poster='" + Poster + '\'' +
-                '}';
+        return Title + " (" + Year + ")";
     }
 }

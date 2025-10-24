@@ -74,24 +74,48 @@ public class OmdbApiService {
     public ArrayList<FilmeResumoVo> buscarFilmes(String palavraChave) throws IOException {
         String formatted = palavraChave.replace(" ", "%20");
         String urlString = apiUrl + "?s=" + formatted + "&apikey=" + apiKey;
+
+        // DEBUG
+        System.out.println("🔗 URL: " + urlString);
+
         URL url = new URL(urlString);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
 
+        System.out.println("📡 Status Code: " + con.getResponseCode());
+
         if (con.getResponseCode() == 200) {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line);
+                }
+
+                String jsonResponse = sb.toString();
+
+                // DEBUG - Mostra resposta completa
+                System.out.println("📦 Resposta da API:");
+                System.out.println(jsonResponse);
+                System.out.println("---");
+
                 Gson gson = new Gson();
-                BuscaFilmeVo resultado = gson.fromJson(reader, BuscaFilmeVo.class);
+                BuscaFilmeVo resultado = gson.fromJson(jsonResponse, BuscaFilmeVo.class);
 
                 if (resultado != null && resultado.getSearch() != null) {
-                    return  resultado.getSearch();
+                    System.out.println("✅ Filmes encontrados: " + resultado.getSearch().size());
+                    return resultado.getSearch();
+                } else {
+                    System.out.println("⚠️ Resultado vazio ou nulo");
                 }
+
                 return new ArrayList<>();
             }
         } else {
             throw new IOException("Erro ao chamar OMDb API: " + con.getResponseCode());
         }
     }
+
 
 }
 

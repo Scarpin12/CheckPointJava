@@ -1,27 +1,19 @@
 package model.vo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BuscaFilmeVo {
-    private List<FilmeResumoVo> search;
+    private ArrayList<FilmeResumoVo> Search;
     private String totalResults;
-    private String response;
+    private String Response;
 
+    // Getters e Setters
     public ArrayList<FilmeResumoVo> getSearch() {
-        return (ArrayList<FilmeResumoVo>) search;
+        return Search;
     }
 
-    public void setSearch(List<FilmeResumoVo> search) {
-        this.search = search;
-    }
-
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
+    public void setSearch(ArrayList<FilmeResumoVo> search) {
+        Search = search;
     }
 
     public String getTotalResults() {
@@ -32,4 +24,11 @@ public class BuscaFilmeVo {
         this.totalResults = totalResults;
     }
 
+    public String getResponse() {
+        return Response;
+    }
+
+    public void setResponse(String response) {
+        Response = response;
+    }
 }

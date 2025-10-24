@@ -1,51 +1,49 @@
 package model.vo;
 
 public class FilmeVo {
-    // Campos da API
-    private String titulo;
-    private String ano;
-    private String genero;
-    private String diretor;
+
+    // Campos com letra MAIÚSCULA para o Gson mapear automaticamente
+    private String Title;
+    private String Year;
+    private String Genre;
+    private String Director;
     private String Poster;
-    private String sinopse;
-    private String avaliacao;
+    private String Plot;
+    private String imdbRating;
     private String imdbID;
 
+    public FilmeVo() {}
 
-    public FilmeVo(){
-
+    public String getTitle() {
+        return Title;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public void setTitle(String title) {
+        Title = title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getYear() {
+        return Year;
     }
 
-    public String getAno() {
-        return ano;
+    public void setYear(String year) {
+        Year = year;
     }
 
-    public void setAno(String ano) {
-        this.ano = ano;
+    public String getGenre() {
+        return Genre;
     }
 
-    public String getGenero() {
-        return genero;
+    public void setGenre(String genre) {
+        Genre = genre;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public String getDirector() {
+        return Director;
     }
 
-    public String getDiretor() {
-        return diretor;
-    }
-
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
+    public void setDirector(String director) {
+        Director = director;
     }
 
     public String getPoster() {
@@ -56,20 +54,20 @@ public class FilmeVo {
         Poster = poster;
     }
 
-    public String getAvaliacao() {
-        return avaliacao;
+    public String getPlot() {
+        return Plot;
     }
 
-    public void setAvaliacao(String avaliacao) {
-        this.avaliacao = avaliacao;
+    public void setPlot(String plot) {
+        Plot = plot;
     }
 
-    public String getSinopse() {
-        return sinopse;
+    public String getImdbRating() {
+        return imdbRating;
     }
 
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
+    public void setImdbRating(String imdbRating) {
+        this.imdbRating = imdbRating;
     }
 
     public String getImdbID() {
@@ -82,16 +80,14 @@ public class FilmeVo {
 
     @Override
     public String toString() {
-        return "FilmeVo{" +
-                "titulo='" + titulo + '\'' +
-                ", ano='" + ano + '\'' +
-                ", genero='" + genero + '\'' +
-                ", diretor='" + diretor + '\'' +
-                ", Poster='" + Poster + '\'' +
-                ", sinopse='" + sinopse + '\'' +
-                ", avaliacao='" + avaliacao + '\'' +
-                ", imdbID='" + imdbID + '\'' +
-                '}';
+        return "\n╔════════════════════════════════════════════════════╗\n" +
+                "  🎬 " + Title + "\n" +
+                "╠════════════════════════════════════════════════════╣\n" +
+                "  📅 Year: " + Year + "\n" +
+                "  🎭 Genre: " + Genre + "\n" +
+                "  🎬 Director: " + Director + "\n" +
+                "  ⭐ Rating: " + imdbRating + "\n" +
+                "  📖 Plot: " + Plot + "\n" +
+                "╚════════════════════════════════════════════════════╝";
     }
 }
-
