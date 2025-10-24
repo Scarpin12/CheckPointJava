@@ -1,70 +1,97 @@
 package model.vo;
 
 public class FilmeVo {
-        private String Title;
-        private String Year;
-        private String Genre;
-        private String Director;
-        private String Poster;
-        private String Plot;
+    // Campos da API
+    private String titulo;
+    private String ano;
+    private String genero;
+    private String diretor;
+    private String Poster;
+    private String sinopse;
+    private String avaliacao;
+    private String imdbID;
 
-        public String getTitle() {
-            return Title;
-        }
 
-        public void setTitle(String title) {
-            Title = title;
-        }
+    public FilmeVo(){
 
-        public String getGenre() {
-            return Genre;
-        }
-
-        public void setGenre(String genre) {
-            Genre = genre;
-        }
-
-        public String getYear() {
-            return Year;
-        }
-
-        public void setYear(String year) {
-            Year = year;
-        }
-
-        public String getDirector() {
-            return Director;
-        }
-
-        public void setDirector(String director) {
-            Director = director;
-        }
-
-        public String getPoster() {
-            return Poster;
-        }
-
-        public void setPoster(String poster) {
-            Poster = poster;
-        }
-
-        public String getPlot() {
-            return Plot;
-        }
-
-        public void setPlot(String plot) {
-            Plot = plot;
-        }
-
-        @Override
-        public String toString() {
-            return "\nFilme: " + Title +
-                    "\nAno: " + Year +
-                    "\nGênero: " + Genre +
-                    "\nDiretor: " + Director +
-                    "\nSinopse: " + Plot +
-                    "\nPoster: " + Poster;
-        }
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getDiretor() {
+        return diretor;
+    }
+
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+
+    public String getPoster() {
+        return Poster;
+    }
+
+    public void setPoster(String poster) {
+        Poster = poster;
+    }
+
+    public String getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(String avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public String getImdbID() {
+        return imdbID;
+    }
+
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
+    }
+
+    @Override
+    public String toString() {
+        return "FilmeVo{" +
+                "titulo='" + titulo + '\'' +
+                ", ano='" + ano + '\'' +
+                ", genero='" + genero + '\'' +
+                ", diretor='" + diretor + '\'' +
+                ", Poster='" + Poster + '\'' +
+                ", sinopse='" + sinopse + '\'' +
+                ", avaliacao='" + avaliacao + '\'' +
+                ", imdbID='" + imdbID + '\'' +
+                '}';
+    }
+}
 
