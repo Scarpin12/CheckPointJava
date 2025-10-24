@@ -18,7 +18,7 @@ public class FilmeBo {
         this.omdbService = new OmdbApiService();
         this.filmeDAO = new FilmeDAO();
     }
-
+/// faz uma lista de filmes atravez da busca
     public List<FilmeResumoVo> buscarESincronizarFilmes(String termoBusca) throws IOException {
         ArrayList<FilmeResumoVo> filmesApi = omdbService.buscarFilmes(termoBusca);
 
@@ -28,7 +28,7 @@ public class FilmeBo {
 
         return filmesApi;
     }
-
+/// salvar no banco
     private void sincronizarFilme(String imdbId) throws IOException {
         FilmeVo filmeExistente = filmeDAO.buscarPorId(imdbId);
 
@@ -37,7 +37,7 @@ public class FilmeBo {
 
             if (filmeCompleto != null && filmeCompleto.getTitle() != null) {
                 filmeDAO.inserir(filmeCompleto);
-                System.out.println("✅ Saved: " + filmeCompleto.getTitle());
+                System.out.println("✅ Salvo: " + filmeCompleto.getTitle());
             }
         }
     }
@@ -46,25 +46,17 @@ public class FilmeBo {
         FilmeVo filme = filmeDAO.buscarPorId(imdbId);
 
         if (filme == null) {
-            System.out.println("🔍 Loading from API...");
+            System.out.println("🔍 Carregando busca da  API...");
             filme = omdbService.buscarFilmePorId(imdbId);
 
             if (filme != null && filme.getTitle() != null) {
                 filmeDAO.inserir(filme);
-                System.out.println("✅ Saved to database");
+                System.out.println("✅ salvo no Banco de dados");
             }
         } else {
-            System.out.println("📦 Loaded from database");
+            System.out.println("📦 Carregando Banco de Dados");
         }
 
         return filme;
-    }
-
-    public List<FilmeVo> buscarPorGenero(String genero) {
-        return filmeDAO.buscarPorGenero(genero);
-    }
-
-    public boolean validarTermoBusca(String termo) {
-        return termo != null && !termo.trim().isEmpty() && termo.length() >= 2;
     }
 }

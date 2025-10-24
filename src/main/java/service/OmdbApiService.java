@@ -3,7 +3,6 @@ import com.google.gson.Gson;
 import model.vo.BuscaFilmeVo;
 import model.vo.FilmeResumoVo;
 import model.vo.FilmeVo;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -94,16 +93,15 @@ public class OmdbApiService {
 
                 String jsonResponse = sb.toString();
 
-                // DEBUG - Mostra resposta completa
-                System.out.println("📦 Resposta da API:");
-                System.out.println(jsonResponse);
-                System.out.println("---");
+//                System.out.println("📦 Resposta da API:");
+//                System.out.println(jsonResponse);
+//                System.out.println("---");
 
                 Gson gson = new Gson();
                 BuscaFilmeVo resultado = gson.fromJson(jsonResponse, BuscaFilmeVo.class);
 
                 if (resultado != null && resultado.getSearch() != null) {
-                    System.out.println("✅ Filmes encontrados: " + resultado.getSearch().size());
+                    System.out.println("✅ Filmes encontrados:" + resultado.getSearch().size());
                     return resultado.getSearch();
                 } else {
                     System.out.println("⚠️ Resultado vazio ou nulo");

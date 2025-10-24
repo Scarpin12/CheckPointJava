@@ -83,11 +83,11 @@ public class FilmeVo {
         return "\n╔════════════════════════════════════════════════════╗\n" +
                 "  🎬 " + Title + "\n" +
                 "╠════════════════════════════════════════════════════╣\n" +
-                "  📅 Year: " + Year + "\n" +
-                "  🎭 Genre: " + Genre + "\n" +
-                "  🎬 Director: " + Director + "\n" +
-                "  ⭐ Rating: " + imdbRating + "\n" +
-                "  📖 Plot: " + Plot + "\n" +
+                "  📅 Ano: " + Year + "\n" +
+                "  🎭 Genero: " + Genre + "\n" +
+                "  🎬 Diretor: " + Director + "\n" +
+                "  ⭐ Avaliação: " + imdbRating + "\n" +
+                "  📖 Sinopse: " + "\n"  + Plot + "\n" +
                 "╚════════════════════════════════════════════════════╝";
     }
 }
